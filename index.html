@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Button styles */
+    .animated-button {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    /* Button hover animation */
+    .animated-button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Hover effect */
+    .hover-effect {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      margin-bottom: 100px;
+    }
+
+    /* Hover animation */
+    .hover-effect:hover {
+      transform: scale(1.1);
+    }
+
+    /* Scroll animation */
+    .scroll-animation {
+        background-color: #3498db;
+        width: max-content;
+        color: #fff;
+        padding: 4px 10px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    /* Apply animation when element comes into view */
+    .scroll-animation.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.addEventListener('scroll', function () {
+        const scrollAnimation = document.querySelector('.scroll-animation');
+        const position = scrollAnimation.getBoundingClientRect().top;
+
+        if (position < window.innerHeight) {
+          scrollAnimation.classList.add('show');
+        }
+      });
+    });
+  </script>
+</head>
+<body style="height: 150vh;">
+  <a href="#" class="animated-button">Click me</a>
+
+  <div class="hover-effect">Hover Me</div>
+
+  <div class="scroll-animation">Scroll down to see the animation</div>
+</body>
+</html>
